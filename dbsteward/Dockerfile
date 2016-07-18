@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
   git \
   libxml2 \
   libxml2-dev \
+  libxml2-utils \
   openssl \
   php-cli \
   php-mysqli \
