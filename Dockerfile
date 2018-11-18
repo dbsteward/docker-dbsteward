@@ -13,9 +13,11 @@ RUN apt-get update && apt-get install -y \
   php-pgsql \
   php-xml \
   composer
-# Install DBSteward
-RUN composer global require nkiraly/dbsteward:dev-master
-ENV PATH=$PATH:/root/.composer/vendor/bin
-# Pick a sane entrypoint / default command
-ENTRYPOINT ["dbsteward"]
+# Install a default DBSteward for people that just want to use the 
+# current published version.
+RUN composer global require dbsteward/dbsteward
+# Use dbsteward.sh script as entrypoint so we can handle different versions 
+# and development scenarios.
+COPY dbsteward.sh /dbsteward.sh
+ENTRYPOINT ["/dbsteward.sh"]
 CMD ["-h"]
