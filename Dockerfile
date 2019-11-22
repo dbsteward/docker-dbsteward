@@ -23,4 +23,4 @@ RUN composer global require dbsteward/dbsteward:$dbsteward_version
 COPY dbsteward.sh /dbsteward.sh
 RUN chmod +x /dbsteward.sh
 ENTRYPOINT ["/dbsteward.sh"]
-CMD ["-h"]
+CMD ["--help"]
